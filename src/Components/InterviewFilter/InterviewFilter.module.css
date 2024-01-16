@@ -1,0 +1,23 @@
+.select_container {
+  width: 33%;
+  padding-right: 30px;
+}
+.select_container label {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #96503f;
+}
+.select_container > div,
+.select_container > div select {
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .select_container {
+        width: 100%;
+        padding-right: 0px;
+        margin-bottom: 20px;
+      }  
+}

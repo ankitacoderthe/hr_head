@@ -1,0 +1,16 @@
+.btn_container {
+    display: flex;
+    justify-content: end;
+    margin-top: 100px;
+  }
+  .btn_container button {
+    width: max-content;
+    padding: 0 20px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: var(--br);
+    cursor: pointer;
+    font-weight: 500;
+    background-color: #96503f ;
+    color:aliceblue
+  }

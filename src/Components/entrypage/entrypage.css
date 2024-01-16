@@ -1,0 +1,60 @@
+.attend-paginatn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 0;
+}
+.attend-paginatn .entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.attend-paginatn .entry select {
+  box-shadow: unset;
+}
+.attend-paginatn .entry option[value=""][disabled] {
+  display: none;
+}
+.attend-paginatn .pagination li a {
+  border: unset;
+  color: #777777;
+  outline: unset;
+  background: unset;
+}
+.attend-paginatn .pagination li a:hover {
+  background-color: unset;
+}
+.attend-paginatn .pagination li a:focus {
+  box-shadow: unset;
+}
+
+.attend-paginatn .pagination li a span {
+  background: #f5f5f5;
+  padding: 2px 18px;
+  color: #000;
+  font-size: 30px;
+  border-radius: 10px;
+  line-height: 22px;
+}
+
+.attend-paginatn .pagination .page-item.active span {
+  background: #96503f;
+  border: #96503f;
+}
+
+/* mobile responsive code */
+@media (max-width: 767px) {
+  .attend-paginatn .entry {
+    display: none;
+  }
+  .attend-paginatn .pagination .page-item a {
+    font-size: 12px;
+  }
+  .attend-paginatn .pagination .page-item.active span {
+    font-size: 12px;
+  }
+  .attend-paginatn .pagination li a span {
+    padding: 1px 15px;
+    font-size: 25px;
+  }
+}

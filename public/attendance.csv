@@ -1,0 +1,3 @@
+employee_id,check_in_datetime(YYYY-MM-DD HH:mm:ss)(Time to be in 24 Hour Format),no_of_shifts
+,,
+,,

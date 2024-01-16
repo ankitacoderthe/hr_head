@@ -1,0 +1,13 @@
+.rangeslider-horizontal {
+    height: 15px;
+    border-radius: 10px;
+}
+.rangeslider-horizontal .rangeslider__handle:after {
+    background-color: var(--bg);
+}
+.rangeslider-horizontal .rangeslider__handle {
+    color: transparent;
+}
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: var(--bg);
+}

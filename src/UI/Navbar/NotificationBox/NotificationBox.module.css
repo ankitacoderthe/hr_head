@@ -1,0 +1,103 @@
+.overlay {
+  position: fixed;
+  z-index: 98;
+  background: #0000006e;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+}
+.notification_box {
+  position: fixed;
+  right: 15px;
+  background: white;
+  top: 72px;
+  border: 1px solid #eeeeee;
+  padding: 0;
+  overflow: scroll;
+  width: 360px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 99;
+}
+.notification_box::-webkit-scrollbar {
+  display: none;
+}
+.notification_div {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+.notification_div:hover {
+  background: #e6e6e6;
+}
+.notification_div > img {
+}
+.notification_div > h3 {
+  font-size: 13px;
+  margin: 0 15px;
+  font-weight: 500;
+  color: #333;
+}
+.notification_div > button {
+  background: none;
+  border: none;
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.notification_modal {
+  position: fixed;
+  display: none;
+  background: white;
+  top: 50%;
+  left: 50%;
+  padding: 30px;
+  z-index: 99;
+  width: 450px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  animation-name: example;
+  animation-duration: .6s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes example {
+  from {
+    opacity: 0;
+    top: 60%;
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+.notification_modal h3 {
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #333;
+}
+.notification_modal p {
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+.notification_modal button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 32px;
+  border-radius: var(--br);
+  border: none;
+  font-weight: 500;
+  color: white;
+  background: var(--bg);
+  margin-left: auto;
+}

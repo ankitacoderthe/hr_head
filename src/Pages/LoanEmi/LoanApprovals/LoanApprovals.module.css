@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.container > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+}
+.container > div > div:nth-child(1) {
+  font-size: 14px;
+  color: var(--bg);
+  font-weight: 500;
+}
+.container > div > div:nth-child(2) {
+  font-size: 14px;
+}
+
+.lmd_container {
+}
+.lmd_container > div:nth-child(1) {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.lmd_container > div:nth-child(2) {
+  font-size: 14px;
+  color: var(--bg);
+  font-weight: 500;
+}
+
+.bottom_btn{
+  margin-top: 20px;
+  height: 35px;
+  width: 100px;
+  border: 1px solid var(--bg);
+  border-radius: var(--br);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+  float: right;
+  margin-bottom: 20px;
+  cursor: pointer;
+}

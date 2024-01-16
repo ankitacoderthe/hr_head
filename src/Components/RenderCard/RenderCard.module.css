@@ -1,0 +1,47 @@
+.rendercard {
+    display: flex;
+    flex-direction: column;
+    width: 153px;
+    height: 170px;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    border-radius: var(--br);
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+  .rendercard > img {
+    width: 40px;
+    height: 40px;
+    margin-inline: auto;
+    margin-top: -22px;
+  }
+  
+  .rendercard > h5 {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #6d6969;
+  }
+  
+  .rendercard > div {
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
+  }
+  .rendercard > div input {
+    display: none;
+  }
+  .rendercard > div label {
+    margin-right: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--bg);
+    cursor: pointer;
+  }
+  .rendercard > div a {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--bg);
+    text-decoration: none;
+  }

@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+}
+
+.layout_right {
+  width: 21%;
+  background: var(--bg);
+  padding: 20px;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  position: sticky;
+}
+.layout_left {
+  width: 79%;
+}
+
+@media screen and (max-width: 1200px) {
+  .layout_left {
+    width: 70%;
+  }
+  .layout_right {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .layout_left {
+    width: 100%;
+  }
+  .layout_right {
+      position: fixed;
+      z-index: 22;
+      width: 100%;
+      left: -100%;
+      transition: 0.3s ease;
+  }
+
+  .sidebar_true{
+    left: 0 !important;
+  }
+}

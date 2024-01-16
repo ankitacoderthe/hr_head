@@ -1,0 +1,16 @@
+.pending {
+    border-radius: var(--br);
+    background-color: #f5f5dc61;
+    border: none;
+    min-width: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    height: 19px;
+    color: var(--bg);
+    float: right;
+    position: absolute;
+    right: 13px;
+    padding: 0 5px;
+}

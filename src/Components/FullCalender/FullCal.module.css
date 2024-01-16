@@ -1,0 +1,70 @@
+/* Tile */
+.tile {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  left: 15px;
+  bottom: -73px;
+}
+.tile_color_div {
+  width: 10px;
+  height: 35px;
+  display: block;
+  margin-right: 10px;
+  background: var(--bg);
+  border-radius: var(--br);
+}
+.tile span {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--bg);
+}
+
+.green_tile .tile_color_div {
+  background: #07c503;
+}
+
+.green_tile span {
+  color: #07c503;
+}
+
+.tile_color_present {
+  background: #19e719 !important;
+}
+.tile_color_absent {
+  background: red !important;
+}
+.tile_color_pending {
+  background: rgb(255, 226, 71) !important;
+}
+
+@media screen and (max-width: 700px) {
+  .tile {
+    display: none;
+  }
+}
+
+.input_container {
+  position: absolute;
+  right: 22px;
+  display: flex;
+}
+.input_container > input {
+  height: 30px;
+  width: 130px;
+  padding: 5px;
+  border-radius: var(--br);
+  border: 1px solid var(--bg);
+  color: var(--bg);
+}
+
+.input_container > button {
+  margin-left: 5px;
+  background: var(--bg);
+  border-radius: var(--br);
+  border: none;
+  padding: 0 7px;
+}
+.input_container > button > img {
+  width: 18px;
+}

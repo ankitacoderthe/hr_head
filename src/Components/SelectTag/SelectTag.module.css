@@ -1,0 +1,29 @@
+.select_div {
+  position: relative;
+  width: max-content;
+}
+.down_arrow {
+  position: absolute;
+  right: 11px;
+  top: 19px;
+}
+.select {
+  width: 170px;
+  height: 48px;
+  border-radius: var(--br);
+  border: 1px solid #dcd8d8;
+  appearance: none;
+  color: var(--bg);
+  font-weight: 500;
+  position: relative;
+  padding-left: 35px;
+  outline: none;
+  padding: 0 10px 0 37px;
+}
+.select_img {
+  position: absolute;
+  z-index: 1;
+  top: 11px;
+  background: white;
+  left: 7px;
+}

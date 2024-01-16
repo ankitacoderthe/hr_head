@@ -1,0 +1,87 @@
+.inner_div {
+  display: flex;
+  justify-content: space-between;
+  margin: 35px 0 20px;
+  flex-wrap: wrap;
+}
+
+.calender_container {
+  padding: 20px;
+  border: 1px solid #dcd8d8;
+  border-radius: var(--br);
+  margin-bottom: 30px;
+  /* display: none; */
+}
+
+
+.calender_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calender_dropdown_select_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.calender_dropdown_select_div {
+  width: 120px;
+  margin-left: 10px;
+  position: relative;
+  height: 30px;
+  height: 40px;
+}
+.calender_dropdown_select_div select {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  border: 1px solid #dcd8d8;
+  color: var(--bg);
+  font-weight: 500;
+  outline: none;
+  border-radius: var(--br);
+}
+.calender_dropdown_select_div img {
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+.actual_calender {
+  width: 100%;
+  position: relative;
+  /* overflow-x: scroll; */
+}
+
+.month_filter{
+  margin-bottom: 20px;
+}
+
+.select_date_con{}
+.select_date_con > div{}
+
+@media screen and (max-width:750px){
+  .actual_calender{
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .calender_div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calender_dropdown_select_container {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .calender_dropdown_select_div {
+    width: 49%;
+    margin-left: 0;
+  }
+}

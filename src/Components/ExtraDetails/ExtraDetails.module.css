@@ -1,0 +1,120 @@
+.container {
+  border-bottom: 1px solid #b5b5b5;
+  margin-bottom: 30px;
+}
+.inner_container {
+  padding-bottom: 20px !important;
+}
+
+.inner_container h5 {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.extra_details_div {
+  /* margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 120px; */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: revert;
+  /* width: 30%; */
+  width: 27%;
+  align-items: center;
+  justify-content: space-between;
+}
+.extra_details_div p {
+  color: #5c5c5c;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bg);
+}
+.extra_details_div h5 {
+  font-weight: 500;
+  font-size: 14px;
+  /* margin-bottom: 15px; */
+}
+.inner_container_first {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.inner_container_second > div {
+  border: 1px solid #b5b5b5;
+  border-radius: var(--br);
+  padding: 20px;
+  width: 100%;
+  min-height: 100px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.inner_container_third {
+  display: flex;
+  margin-top: 27px;
+  font-weight: 500;
+  align-items: center;
+}
+.inner_container_fourth {
+  display: flex;
+  margin-top: 27px;
+  font-weight: 500;
+  align-items: center;
+}
+.inner_container_fifth {
+  display: flex;
+  margin-top: 27px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.inner_container_third > span {
+  margin-left: 6px;
+  height: 29px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0px;
+  font-weight: 600; 
+  color: #07c503;
+  background: #c7ffc6;
+  font-size: 13px;
+  border-radius: 28px;
+}
+.inner_container_fourth > span {
+  margin-left: 6px;
+  height: 29px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0px;
+  font-weight: 600;
+  background: #ffc6c6;
+  color: #c50303;
+  font-size: 13px;
+ 
+  border-radius: 28px;
+}
+.inner_container_fifth > span {
+  margin-left: 6px;
+  height: 29px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0px;
+  font-weight: 600;
+  background: #fff2c6;
+  color: #c58f03;
+  font-size: 13px;
+
+  border-radius: 28px;
+}
+
+@media screen and (max-width: 1000px) {
+  .extra_details_div {
+    width: 100%;
+  }
+}

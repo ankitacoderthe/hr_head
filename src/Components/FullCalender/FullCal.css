@@ -1,0 +1,48 @@
+.fc-h-event .fc-event-title {
+    display: none;
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    right: 0;
+    vertical-align: top;
+    position: unset;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.3em;
+    margin: 0;
+    color: var(--bg);
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end{
+    border: transparent;
+}
+
+.fc-col-header-cell {
+    padding: 7px 20px !important;
+    color: var(--bg);
+    font-weight: 500;
+}
+
+.fc .fc-scrollgrid,
+.fc .fc-scrollgrid table {
+    border-radius: var(--br);
+    overflow: hidden;
+}
+
+.fc-toolbar-chunk:nth-child(3){
+    display: none !important;
+}
+.eventdiv{}
+
+@media screen and (max-width:700px){
+    .fc-col-header-cell {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width:390px) {
+    .fc-toolbar-chunk:last-child{
+        display: none;
+    }
+}

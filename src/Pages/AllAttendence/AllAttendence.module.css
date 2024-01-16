@@ -1,0 +1,10 @@
+.mp_button {
+    width: 130px;
+    height: 40px;
+    border-radius: var(--br);
+    background: var(--bg);
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}

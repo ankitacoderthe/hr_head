@@ -1,0 +1,10 @@
+.input_container{
+    display: flex;
+    margin-top: 30px;
+}
+
+@media screen and (max-width:600px){
+    .input_container{
+        flex-direction: column;
+    }
+}

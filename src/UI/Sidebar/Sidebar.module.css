@@ -1,0 +1,66 @@
+.sidebar_ul {
+    list-style: none;
+    margin-top: 30px;
+    overflow-y: scroll;
+    display: block;
+    height: 555px;
+  }
+  
+  .sidebar_ul::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .sidebar_ul {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .sidebar_ul li {
+  }
+  .navbar_logo {
+  }
+  
+  .sidebar_header_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .sidebar_header_top button {
+    background: none;
+    display: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .navbar_logo button {
+    display: none;
+  }
+  .sidebar_ul li .sidebar_a:hover {
+    background: #c58779;
+  }
+  .sidebar_ul li .sidebar_a {
+    height: 45px;
+    margin-bottom: 10px;
+    border-radius: var(--br);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    position:relative
+  }
+  .sidebar_ul li .sidebar_a img {
+    margin-right: 15px;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .sidebar_header_top button{
+      display: block;
+    }
+  }
+  

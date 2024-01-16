@@ -1,0 +1,10 @@
+.whole_table_c::-webkit-scrollbar {
+  display: none;
+}
+
+/* whole_tbale_c scrollbar for IE, Edge and Firefox */
+.whole_table_c {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: scroll;
+}

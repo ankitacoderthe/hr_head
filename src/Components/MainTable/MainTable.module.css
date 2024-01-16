@@ -1,0 +1,165 @@
+.height::-webkit-scrollbar {
+  display: none;
+}
+
+.height {
+  height: 363px;
+  overflow-y: scroll;
+  padding: 0 1px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.react-datepicker {
+  float: left;
+  position: absolute;
+  z-index: 50;
+}
+.table {
+  width: 100%;
+  table-layout: fixed;
+  /* margin-top: 30px; */
+  border-spacing: 0 10px;
+}
+
+.table thead {
+ 
+  background: #fcf6ab;
+  color: #96503f;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.table thead tr {
+  height: 50px;
+  border-radius: var(--br);
+  text-align: left;
+  outline: 1px solid #fcf6ab;
+}
+.table thead tr th {
+  padding-left: 20px;
+  font-weight: 500;
+  font-size: initial;
+}
+.table tbody tr {
+  height: 50px;
+  border-radius: var(--br);
+  outline: 1px solid #dcd8d8;
+}
+.table tbody tr td {
+  padding-left: 20px;
+  font-size: 15px;
+  color: #464646;
+  font-weight: 500;
+}
+.table button {
+  height: 30px;
+  width: 85px;
+  margin: auto;
+  display: block;
+  background: #f17d03;
+  color: white;
+  border: none;
+  border-radius: var(--br);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.name_feild {
+  color: #96503f !important;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+}
+
+.name_feild img {
+  margin-right: 10px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.table_input {
+  height: 35px;
+  border-radius: var(--br);
+  outline: 1px solid #dcd8d8;
+  border: none;
+  font-size: 18px;
+  color: #a09d9d;
+  padding: 0 15px;
+  max-width: 88px;
+  margin-top: 30px;
+}
+.input_entries {
+  color: #a09d9d;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.none {
+  display: none;
+}
+
+.exp_btn{
+  height: 34px;
+  display: flex;
+  width: 126px;
+  background: var(--bg);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--br);
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.attendence {
+  
+}
+.present,
+.loan_req {
+  width: min-content;
+  border-radius: 18px;
+  color: #07c503;
+  background: #c7ffc6;
+  padding: 7px 25px;
+}
+.absent,
+.fine_req {
+  width: min-content;
+  border-radius: 18px;
+  background: #ffc6c6;
+  color: #c50303;
+  padding: 7px 25px;
+}
+.pending {
+  width: min-content;
+  border-radius: 18px;
+  background: #fff2c6;
+  color: #c58f03;
+  padding: 7px 25px;
+}
+
+.Lnk2{
+color: var(--bg);
+font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+  .table {
+    width: 1000px;
+  }
+
+  .table.spl_t{
+    width: 100%;
+  }
+  .table_container {
+    width: 100%;
+    overflow-y: scroll;
+    padding: 1px;
+  }
+}

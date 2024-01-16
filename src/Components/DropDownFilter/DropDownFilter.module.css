@@ -1,0 +1,48 @@
+.DropDownFilter {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.DropDownFilter_left {
+  display: flex;
+}
+.DropDownFilter_left > div:first-child {
+  margin-right: 10px;
+}
+
+/* Button */
+.DropDownFilter_Btn {
+  height: 38px;
+  border-radius: var(--br);
+  width: max-content;
+  padding: 0 20px;
+  border: 1px solid var(--bg);
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bg);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.DropDownFilter_Btn:hover {
+}
+
+
+@media screen and (max-width:600px){
+  .DropDownFilter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .DropDownFilter_Btn {
+    width: 100%;
+    margin-top: 25px;
+  }
+  .DropDownFilter_right{
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+.bottom_btn{
+    margin-top: 50px;
+    height: 35px;
+    width: 100px;
+    border: 1px solid var(--bg);
+    border-radius: var(--br);
+    color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    float: right;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }

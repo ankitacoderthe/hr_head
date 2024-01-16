@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width:650px){
+    .container{
+        flex-direction: column;
+        column-gap: 10px;
+        align-items: flex-start;
+        
+      }
+}

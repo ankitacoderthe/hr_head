@@ -1,0 +1,154 @@
+.navbar {
+  background: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.searchbar_container {
+  display: flex;
+  width: 53%;
+  position: relative;
+}
+.logout{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  font-size: 22px;
+}
+.searchbar_container input {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--br);
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-weight: 500;
+  color: #929395;
+}
+
+.searchbar_container img {
+  position: absolute;
+  right: 9px;
+  top: 8px;
+  cursor: pointer;
+}
+.nav_divs_container {
+  display: flex;
+  align-items: center;
+}
+.nav_div {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.nav_div span {
+  color: black;
+}
+.nav_div img {
+  margin-right: 10px;
+  filter: invert();
+}
+.nav_div {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.notification_bell {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navbar_sidediv {
+  display: flex;
+  width: 100%;
+  margin-right: auto;
+  justify-content: flex-end;
+}
+
+.nav_logo {
+  display: none;
+}
+
+.sidebar_open_btn {
+  background: #96503f;
+  border: none;
+  margin-left: 10px;
+  display: none;
+}
+.sidebar_open_btn div {
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background: white;
+  display: block;
+  border-radius: var(--br);
+}
+
+.sidebar_open_btn div:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .searchbar_container {
+    width: 42%;
+    position: relative;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .searchbar_container {
+    width: 34%;
+    position: relative;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .navbar_sidediv {
+    margin-right: unset;
+  }
+
+  .searchbar_container {
+    display: none;
+  }
+
+  .nav_div {
+    display: none;
+  }
+  .navbar {
+    background: var(--bg);
+  }
+  .nav_logo {
+    display: block;
+  }
+  .nav_logo img {
+    width: 150px;
+  }
+
+  .sidebar_open_btn {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav_div {
+    display: none;
+  }
+}

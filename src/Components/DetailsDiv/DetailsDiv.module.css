@@ -1,0 +1,40 @@
+.details_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  width: 27%;
+  font-weight: 500;
+  font-size: 14px;
+}
+.details_div span {
+  color: #959292;
+  font-weight: 400;
+}
+
+.wd50 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  width: 43%;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.wd100{
+  width: 100%;
+}
+
+@media screen and (max-width:900px){
+  .wd50{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:600px){
+  .details_div{
+    width: 100%;
+  }
+}
+

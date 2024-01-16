@@ -1,0 +1,18 @@
+.container{
+    border: 1px solid #b5b5b5;
+    border-radius: var(--br);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div span{
+    font-weight: 600;
+    color: var(--bg);
+    margin-bottom: 30px;
+}

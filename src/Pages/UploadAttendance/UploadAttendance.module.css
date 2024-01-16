@@ -1,0 +1,52 @@
+.instructions{
+    padding: 20px;
+    background: #e2e2e2;
+    border-radius: var(--br);
+    margin-top: 50px;
+}
+.ul{
+    /* list-style: none; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding-left: 20px;
+}
+.ul > li{
+    font-style: italic;
+    font-size: 14px;
+}
+
+.form{
+    margin-top: 50px;
+    display: flex;
+
+    gap: 15px;
+}
+
+.form > div{
+    width: calc(100% - 120px) ;
+}
+
+.form > div label,
+.form > div label span{
+    height: 40px !important;
+}
+
+.form button{
+
+    width: 120px;
+    padding: 0 30px;
+    display: flex;
+    height: 40px;
+    border-radius: var(--br);
+    cursor: pointer;
+    font-weight: 500;
+    background: var(--bg);
+    color: white;
+    border: 1px solid var(--bg);
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-left: auto;
+}

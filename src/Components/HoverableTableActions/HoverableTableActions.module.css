@@ -1,0 +1,39 @@
+/* Hoverable Links */
+.hoverable_actions {
+    position: relative;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+  .hoverable_actions span{
+    font-size: 1.7rem;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+  .hoverable_actions ul {
+    position: absolute;
+    left: -139px;
+    list-style: none;
+    border-radius: var(--br);
+    background: white;
+    overflow: hidden;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    display: none;
+  }
+
+  .hoverable_links {
+    text-decoration: none;
+    display: flex;
+    color: black;
+    height: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 140px;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .hoverable_links:hover {
+    background: #ffd2c7;
+  }

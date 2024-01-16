@@ -1,0 +1,47 @@
+.container {
+  padding: 20px 0;
+}
+
+.heading {
+  color: var(--bg);
+  margin-bottom: 20px;
+}
+
+.dnd_container {
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #b5b5b5;
+  border-radius: var(--br);
+  margin-top: 30px;
+}
+.dnd_container p {
+  font-size: 11px;
+  font-weight: 400;
+  color: gray;
+  margin-top: 4px;
+}
+.dnd {
+  margin-top: 30px;
+  height: 219px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 3px dotted #f17d03;
+  border-radius: var(--br);
+  background: #fffdea;
+  cursor: pointer;
+}
+.drag-file-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.input_file_upload {
+  display: none;
+}

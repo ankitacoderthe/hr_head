@@ -1,0 +1,35 @@
+.heading_container{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heading_container h2{
+    margin-bottom: 5px;
+}
+.breadcrumb{
+    color: gray;
+    font-size: 13px;
+    font-weight: 400;
+}
+.btn_container{
+    display: flex;
+   
+    justify-content: space-between;
+}
+.heading_btn{
+    width: max-content;
+    padding: 0 30px;
+    display: flex;
+    height: 40px;
+    border-radius: var(--br);
+    cursor: pointer;
+    font-weight: 500;
+    background: var(--bg);
+    color: white;
+    border: 1px solid var(--bg);
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
