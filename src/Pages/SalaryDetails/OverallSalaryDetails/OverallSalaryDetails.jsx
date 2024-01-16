@@ -59,9 +59,9 @@ const Tile = ({ date, view }) => {
 const OverallSalaryDetails = () => {
   const [date,setDate]=useState(null)
   const { sendRequest: fetchSalary } = useHttp()
-  const [month, setMonth] = useState(null)
+  const [month, setMonth] = useState(moment().month())
   const [newDate, setNewDate] = useState(new Date())
-  const [year, setYear] = useState(null)
+  const [year, setYear] = useState(moment().year())
   const cookies = new Cookies();
   const token = cookies.get('hr_head_token')
   const headers = { "Authorization": "Bearer " + token }
@@ -148,120 +148,135 @@ const OverallSalaryDetails = () => {
       setEmployeeId(Salary[0].employee_id)
       setMonth(Salary[0].month)
       setYear(Salary[0].year)
-      let from_date = moment([Salary[0].year,Salary[0].month]).startOf('month')
-      let end_date = moment([Salary[0].year,Salary[0].month]).startOf('month')
-      axios.get(url + "api/getCommissionData?employee_id=" + Salary[0].employee_id + "&date=" + moment(from_date).format("YYYY-MM-DD"), { headers }).then((response) => {
-        var days = []
-        var dataArray=[]
-        let sum=0
-       response.data.forEach((data)=>{
-sum+data.commission
-       })
-      setCommissionSum(sum)
-          for (let i=0;i<7;i++){
-let index=response.data.findIndex((data)=>{
-  return data.date===moment(from_date).add(i,'d').format("YYYY-MM-DD")
-})
-
-days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
-            if(index!=-1){
-              dataArray.push(response.data[index].commission)
-            }else{
-              dataArray.push(0)
-            }
-          }
-          console.log(days,dataArray)
-         setCommissionData( {
-            labels: days,
-            datasets: [
-              {
-                label: 'Commission Amount',
-                data: dataArray,
-                fill: true, // Fill the area under the line
-                backgroundColor: 'rgba(75, 192, 192, 0.6)', // Area color
-                borderColor: 'rgba(75, 192, 192, 1)', // Line color
-              },
-            ],
-          })
-         setOptions( {
-          scales: {
-            x: {
-              type: 'time',
-              adapters: { 
-                date: {
-                  locale: enUS, 
-                },
-              }, 
-              title: {
-                display: true,
-                text: 'Date',
-              },
-            },
-           
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Commission Amount',
-              },
-            },
-          },
-          })
-
-        // setCommissionData({
-        //   seriesSpark3: [{
-        //     data: array
-           
-        //   }],
-
-        //   optionsSpark3: {
-        //     chart: {
-        //         type: 'area',
-        //         sparkline: {
-        //             enabled: true
-        //         },
-        //     },
-        //     stroke: {
-        //         curve: 'straight'
-        //     },
-        //     fill: {
-        //         opacity: 0.3
-        //     },
-        //     xaxis: {
-        //        type:'datetime'
-        //     },
-        //     yaxis: {
-        //         min: 0
-        //     },
-
-        // }
-        // })
-      })
+    
       const listSalarySummary = (Summary) => {
         Summary.forEach((data) => {
 
-          data.date = data.check_in_datetime.split(" ")[0].split("-").reverse().join("-")
-          data.time = data.check_in_datetime.split(" ")[1].substring(0, 8)
-          data.day = dayArray[moment(data.check_in_datetime).day()]
+       
           data.commission = 0
         })
-
         setSummaryData(Summary)
-
       }
       
       if (emp_id !== null) {
 
         fetchSalarySummary({ url: url + "api/getSalarySummary?employee_id=" + emp_id + "&from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.format("YYYY-MM-DD") }, listSalarySummary)
       }
+      let from_date = moment([Salary[0].year,Salary[0].month]).startOf('month')
+      let end_date = moment([Salary[0].year,Salary[0].month]).startOf('month')
+//       axios.get(url + "api/getCommissionData?employee_id=" + Salary[0].employee_id + "&date=" + moment(from_date).format("YYYY-MM-DD"), { headers }).then((response) => {
+//         let salarySummary=summaryData
+//         let dateArray=[]
+//         response.data.forEach((data)=>{
+// dateArray.push(data.date)
+//         })
+
+//         salarySummary.forEach((d)=>{
+//         if(dateArray.includes(moment(d.check_in_datetime).format("YYYY-MM-DD"))){
+//           let index=response.data.findIndex((d)=>{
+//             return d.date===moment(d.check_in_datetime).format("YYYY-MM-DD")
+//           })
+//           d.commission=response.data[index].commission
+//         }
+//         })
+//         setSummaryData(salarySummary)
+//         var days = []
+//         var dataArray=[]
+//         let sum=0
+
+//        response.data.forEach((d)=>{
+// sum+=d.commission
+//        })
+//       setCommissionSum(sum)
+//           for (let i=0;i<7;i++){
+// let index=response.data.findIndex((data)=>{
+//   return data.date===moment(from_date).add(i,'d').format("YYYY-MM-DD")
+// })
+
+// days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
+//             if(index!=-1){
+//               dataArray.push(response.data[index].commission)
+//             }else{
+//               dataArray.push(0)
+//             }
+//           }
+//           console.log(days,dataArray)
+//          setCommissionData( {
+//             labels: days,
+//             datasets: [
+//               {
+//                 label: 'Commission Amount',
+//                 data: dataArray,
+//                 fill: true, // Fill the area under the line
+//                 backgroundColor: 'rgba(75, 192, 192, 0.6)', // Area color
+//                 borderColor: 'rgba(75, 192, 192, 1)', // Line color
+//               },
+//             ],
+//           })
+//          setOptions( {
+//           scales: {
+//             x: {
+//               type: 'time',
+//               adapters: { 
+//                 date: {
+//                   locale: enUS, 
+//                 },
+//               }, 
+//               title: {
+//                 display: true,
+//                 text: 'Date',
+//               },
+//             },
+           
+//             y: {
+//               beginAtZero: true,
+//               title: {
+//                 display: true,
+//                 text: 'Commission Amount',
+//               },
+//             },
+//           },
+//           })
+
+//         // setCommissionData({
+//         //   seriesSpark3: [{
+//         //     data: array
+           
+//         //   }],
+
+//         //   optionsSpark3: {
+//         //     chart: {
+//         //         type: 'area',
+//         //         sparkline: {
+//         //             enabled: true
+//         //         },
+//         //     },
+//         //     stroke: {
+//         //         curve: 'straight'
+//         //     },
+//         //     fill: {
+//         //         opacity: 0.3
+//         //     },
+//         //     xaxis: {
+//         //        type:'datetime'
+//         //     },
+//         //     yaxis: {
+//         //         min: 0
+//         //     },
+
+//         // }
+//         // })
+//       })
+   
+      
     }
     fetchSalary({ url: url + "api/getSalary?id=" + id }, listSalary)
-
    
    
 
   }
   useEffect(() => {
+    
     let from_date = moment(date).startOf('week')
     let end_date = moment(date).endOf('week')
     axios.get(url + "api/getCommissionData?employee_id=" + employee_id + "&date=" + moment(from_date).format("YYYY-MM-DD"), { headers }).then((response) => {
@@ -335,11 +350,11 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
   }, [attendanceData])
   useEffect(() => {
 
-    const dayArray = ['Sunday', 'Monday', 'TuesDay', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    // const dayArray = ['Sunday', 'Monday', 'TuesDay', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
    
     
-    if (emp_id !== null& month!==null&year!=null) {
+    if (emp_id !== null& month!==null&year!=null&&employee_id!==null) {
       const getTotalFine = (fineDetails) => {
 
         if (fineDetails[0].amount !== null) {
@@ -352,21 +367,29 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
           setTotalLateFine(fineDetails[0].amount)
         }
       }
+      let from_date = moment([year,month]).startOf('month')
+      let end_date = moment([year,month]).endOf('month')
       const listSalarySummary = (Summary) => {
+
         Summary.forEach((data) => {
   
-          data.date = data.check_in_datetime.split(" ")[0].split("-").reverse().join("-")
-          data.time = data.check_in_datetime.split(" ")[1].substring(0, 8)
-          data.day = dayArray[moment(data.check_in_datetime).day()]
+         data.check_in_datetime=moment(data.check_in_datetime).format("DD-MM-YYYY HH:mm:ss")
+         data.check_out_datetime=moment(data.check_out_datetime).format("DD-MM-YYYY HH:mm:ss")
+          if(!moment.isMoment(data.check_out_datetime)){
+data.check_out_datetime=''
+          }
+          // data.day = dayArray[moment(data.check_in_datetime).day()]
           data.commission = 0
         })
   
         setSummaryData(Summary)
   
       }
-     let from_date = moment([year,month]).startOf('month')
-     let end_date = moment([year,month]).endOf('month')
-      fetchSalarySummary({ url: url + "api/getSalarySummary?employee_id=" + emp_id + "&from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.format("YYYY-MM-DD") }, listSalarySummary)
+            fetchSalarySummary({ url: url + "api/getSalarySummary?employee_id=" + emp_id + "&from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.format("YYYY-MM-DD") }, listSalarySummary)
+
+    
+  
+   
       const listAttendance = (attendance) => {
         setAttendanceData(attendance)
        
@@ -389,8 +412,7 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
   
      
       fetchFine({ url: url + "api/getTotalFines?from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.add(1, 'd').format("YYYY-MM-DD") + "&employee_id=" + emp_id }, getTotalFine)
-      from_date = moment(datetime).startOf('month')
-    end_date = moment(datetime).endOf('month')
+    
     fetchFine({ url: url + "api/getTotalFines?from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.add(1, 'd').format("YYYY-MM-DD") + "&employee_id=" +id +"&reason="+"'Late Coming'" }, getTotalLateFine)
       
     }
@@ -401,7 +423,119 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
   useEffect(() => {
    fetchData()
   }, [])
-  console.log(summaryData)
+ useEffect(()=>{
+  if(summaryData.length>0){
+    let from_date = moment([year,month]).startOf('month')
+      let end_date = moment([year,month]).endOf('month')
+    axios.get(url + "api/getCommissionData?employee_id=" + employee_id + "&date=" + moment(from_date).format("YYYY-MM-DD"), { headers }).then((response) => {
+      let salarySummary=summaryData
+      let dateArray=[]
+      response.data.forEach((data)=>{
+  dateArray.push(data.date,summaryData)
+      })
+  console.log("dateArray",dateArray)
+      salarySummary.forEach((da)=>{
+       
+      if(dateArray.includes(da.check_in_datetime.split(" ")[0].split("-").reverse().join("-"))){
+      
+        let index=response.data.findIndex((d)=>{
+          return d.date===da.check_in_datetime.split(" ")[0].split("-").reverse().join("-")
+        })
+        
+        da.commission=response.data[index].commission
+      }
+      })
+      setSummaryData(salarySummary)
+      var days = []
+      var dataArray=[]
+      let sum=0
+  
+     response.data.forEach((d)=>{
+  sum+=d.commission
+     })
+    setCommissionSum(sum)
+        for (let i=0;i<7;i++){
+  let index=response.data.findIndex((data)=>{
+  return data.date===moment(from_date).add(i,'d').format("YYYY-MM-DD")
+  })
+  
+  days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
+          if(index!=-1){
+            dataArray.push(response.data[index].commission)
+          }else{
+            dataArray.push(0)
+          }
+        }
+        console.log(days,dataArray)
+       setCommissionData( {
+          labels: days,
+          datasets: [
+            {
+              label: 'Commission Amount',
+              data: dataArray,
+              fill: true, // Fill the area under the line
+              backgroundColor: 'rgba(75, 192, 192, 0.6)', // Area color
+              borderColor: 'rgba(75, 192, 192, 1)', // Line color
+            },
+          ],
+        })
+       setOptions( {
+        scales: {
+          x: {
+            type: 'time',
+            adapters: { 
+              date: {
+                locale: enUS, 
+              },
+            }, 
+            title: {
+              display: true,
+              text: 'Date',
+            },
+          },
+         
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Commission Amount',
+            },
+          },
+        },
+        })
+  
+      // setCommissionData({
+      //   seriesSpark3: [{
+      //     data: array
+         
+      //   }],
+  
+      //   optionsSpark3: {
+      //     chart: {
+      //         type: 'area',
+      //         sparkline: {
+      //             enabled: true
+      //         },
+      //     },
+      //     stroke: {
+      //         curve: 'straight'
+      //     },
+      //     fill: {
+      //         opacity: 0.3
+      //     },
+      //     xaxis: {
+      //        type:'datetime'
+      //     },
+      //     yaxis: {
+      //         min: 0
+      //     },
+  
+      // }
+      // })
+    })
+  }
+ 
+ },[summaryData])
   const getDate = (date) => {
     const getTotalFine = (fineDetails) => {
 
@@ -443,7 +577,7 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
   }
   var calData = [
     {
-      p: 'No. Of Working',
+      p: 'No. Of Present',
       h1: no_of_working,
       bg: '#96503F'
     },
@@ -479,16 +613,16 @@ days.push(moment(from_date).add(i,'d').format("YYYY-MM-DD"))
     fetchAttendance({ url: url + "api/getAttendance?from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + to_date.format("YYYY-MM-DD") + "&employee_id=" + emp_id }, listAttendance)
   }
   const tableHeadings = [
-    { heading: 'Date' },
-    { heading: 'Day' },
-    { heading: 'Time' },
+    { heading: 'Check in Date Time' },
+   
+    { heading: 'Check out Date Time' },
     { heading: 'No. Of Working' },
     { heading: 'Commission' },
     { heading: 'Total Fines' },
     {heading:'Status'}
   ]
 
-  const tableKeys = ['date', 'day', 'time', 'no_of_shifts', 'commission', 'amount','status']
+  const tableKeys = ['check_in_datetime', 'check_out_datetime', 'no_of_shifts', 'commission', 'amount','status']
 
   
 
@@ -544,7 +678,7 @@ console.log(commissionData);
            <LabeledInput type='date' id='select_date' title='Select Date' img={false} func2={selectMonthFunc} />
           </div> */}
           <br />
-         { <FullCal dateFunc={getDate} event={ArrData} month={month}  year={year}/>}
+         <FullCal dateFunc={getDate} event={ArrData} month={month}  year={year}/>
         </div>
       </div>
       <CalendarBottomDiv  id={emp_id} month={month} data={calData} year={year} empID={employee_id}  />

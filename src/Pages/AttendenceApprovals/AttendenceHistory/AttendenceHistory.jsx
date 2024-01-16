@@ -160,23 +160,26 @@ const AttendenceHistory = () => {
 
   console.log(div_data);
   const tableHeadings = [
-    { heading: 'Date' },
-    { heading: 'Day' },
-    { heading: 'Time' },
+    { heading: 'Check in  Datetime' },
+    { heading: 'Check out Datetime' },
     { heading: 'No. Of Working' },
     { heading: 'Attendence' },
     { heading: ' ' },
     { heading: ' ' },
   ]
 
-  const tableKeys = ['date', 'day', 'time', 'no_of_shifts', 'status']
+  const tableKeys = [ 'check_in_datetime', 'check_out_datetime', 'no_of_shifts', 'status']
   const newData = []
   tableData.forEach((data) => {
     let obj = {}
-    obj.date = data.datetime?.split(" ")[0]
-    obj.time = data.datetime?.split(" ")[1].substring(0, 8)
-    let date = moment(obj.date)
-    obj.day = dayArray[date.day()]
+   
+    
+    obj.check_in_datetime = moment(data.datetime).format("DD-MM-YYYY HH:mm:ss")
+    obj.check_out_datetime = moment(data.check_out_datetime).format("DD-MM-YYYY HH:mm:ss")
+
+   if(!moment(data.check_out_datetime).isValid()){
+obj.check_out_datetime=''
+   }
     obj.no_of_shifts = data.no_of_shifts
     obj.status = data.status
     newData.push(obj)
@@ -219,7 +222,7 @@ const AttendenceHistory = () => {
   console.log("here our data", no_of_working, totalFine, totalFine, off)
   var calData = [
     {
-      p: 'No. Of Working',
+      p: 'No. Of Present',
       h1: no_of_working,
       bg: '#96503F'
     },
@@ -301,8 +304,8 @@ useEffect(()=>{
      end_date = moment(date).endOf('month').add(1,'d')
     fetchFine({ url: url + "api/getTotalFines?from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.add(1, 'd').format("YYYY-MM-DD") + "&employee_id=" + id }, getTotalFine)
     
-    from_date = moment(datetime).startOf('month')
-    end_date = moment(datetime).endOf('month')
+    from_date = moment(date).startOf('month')
+    end_date = moment(date).endOf('month')
     fetchFine({ url: url + "api/getTotalFines?from_date=" + from_date.format("YYYY-MM-DD") + "&to_date=" + end_date.add(1, 'd').format("YYYY-MM-DD") + "&employee_id=" +id +"&reason="+"'Late Coming'" }, getTotalLateFine)
   }
 console.log("month",month)
