@@ -22,7 +22,7 @@ const SalaryDetails = () => {
   const [monthSelected,setMonth]=useState(new Date().getMonth())
   const [yearSelected,setYearSelected]=useState(new Date().getFullYear())
   const [commissionData,setCommissionData]=useState(null)
-  const token = cookies.get('admin_token')
+  const token = cookies.get('hr_head_token')
   let headers = { "Authorization": "Bearer " + token }
   const[salary,setSalary]=useState([])
   const { sendRequest: fetchSalary } = useHttp()
