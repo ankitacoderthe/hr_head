@@ -58,9 +58,10 @@ const GroupTable = (props) => {
                    {props.salary[0]?.esi? <div><div className={classes.table_body_data_div}>
                         ESI <span>₹{props.salary[0]?.esi?.toFixed(2)}</span>
                     </div>
+                    </div>:null}
                     <div className={classes.table_body_data_div}>
                         PF <span>₹{props.salary[0]?.pf?.toFixed(2)}</span>
-                    </div></div>:null}
+                    </div>
                     {/* <div className={classes.table_body_data_div}>
                         <span></span> <span>₹14452</span>
                     </div> */}

@@ -215,7 +215,7 @@ else{
         
 
          // console.log(lead_date)
-         if (download.length > 2 && aadharLen ) {``
+         if (download.length > 2  ) {``
              setIsloading(true)
              axios.post(baseURL + "api/addEmployee", {
                  "name": name,

@@ -10,7 +10,8 @@ import useHttp from '../../../Hooks/use-http'
 import moment from 'moment'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-import { baseURL } from '../../../util'
+import { url } from '../../../util'
+
 const SalarySummaryDetails = () => {
     const cookies = new Cookies();
     const token = cookies.get('hr_head_token')
@@ -25,6 +26,7 @@ const SalarySummaryDetails = () => {
     const [table_headings,setTableHeadings]=useState([])
    
     const navigate=useNavigate()
+   
 useEffect(()=>{
    
     // if(token===null){
@@ -33,7 +35,9 @@ useEffect(()=>{
     
     
       const listSalary=(Salary)=>{
+      
        if(Salary[0].esi!==null){
+        console.log(Salary)
         setFixedData([
             {
                 "title": 'Salary',
@@ -53,11 +57,11 @@ useEffect(()=>{
             {
                 "title": 'Basic Pay',
                 "val_a": Salary[0].amount.toFixed(2),
-                "val_b": Salary[0].min_wages_as_per_rule
+                "val_b": Salary[0].min_wages_as_per_rule>Salary[0].amount.toFixed(2)?Salary[0].min_wages_as_per_rule:Salary[0].amount.toFixed(2)
             },
             {
                 "title": 'Commission',
-                "val_a": Salary[0].commission.toFixed(2),
+                "val_a": Salary[0].commission===null?0:Salary[0].commission.toFixed(2),
                 "val_b": ''
             },
             {
@@ -208,7 +212,7 @@ useEffect(()=>{
             
     
       }
-      fetchSalary({url:baseURL+"api/getSalary?id="+id},listSalary)
+      fetchSalary({url:url+"api/getSalary?id="+id},listSalary)
 },[])
 console.log(fixed_data)
 

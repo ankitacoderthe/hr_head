@@ -22,6 +22,7 @@ const SalarySummary = () => {
   const [limit,setLimit]=useState(10)
   const [offset,setOffset]=useState(0)
    const [monthSelected,setMonth]=useState(null)
+   const [yearSelected,setYear]=useState(null)
   const[salary,setSalary]=useState([])
   const[isView,setIsView]=useState(false)
   const { sendRequest: fetchSalary } = useHttp()
@@ -45,12 +46,19 @@ useEffect(()=>{
       data.pf=data.pf?.toFixed(2)
       data.esi=data.esi?.toFixed(2)
       data.net_payable_salary=data.net_payable_salary?.toFixed(2)
+      if(data.min_wages_as_per_rule===null){
+        data.min_wages_as_per_rule=data.base_salary
+      }
+      else if(data.min_wages_as_per_rule<data.base_salary){
+        data.min_wages_as_per_rule=data.base_salary
+      }
+      // data.min_wages_as_per_rule!==null&&data.min_wages_as_per_rule>data.base_salary?data.min_wages_as_per_rule:data.base_salary
     })
     setSalary(Salary)
   }
-  if(monthSelected!==null){
-    let monthObj=monthSelected?.month?.number-1
-    let yearObj=monthSelected?.year
+  if(monthSelected!==null&& yearSelected!==null){
+    let monthObj=monthSelected
+    let yearObj=yearSelected
 let queryString=url+"api/getAllSalary?month="+monthObj+"&limit="+limit+"&offset="+offset+"&year="+yearObj
 if(employeeFilter.employee_query!=''&&employeeFilter.employee_query!==undefined){
   queryString+="&employee_query="+employeeFilter.employee_query
@@ -87,13 +95,13 @@ if(employeeFilter.employee_query!=''&&employeeFilter.employee_query!==undefined)
     
         fetchSalary({url:queryString},listTotal)
   }
-},[monthSelected,employeeFilter,limit,offset])
+},[monthSelected,yearSelected,employeeFilter,limit,offset])
 console.log(salary)
   // Table Headings, Data and Keys
   const tableHeadings=[
     {heading:'Employee Name'},
     {heading:'Employee ID'},
-    {heading:'Min Wages'},
+    {heading:'Salary'},
     {heading:'Total Days In Month'},
     {heading:'Days Wages Paid'},
     {heading:'Basic'},
@@ -214,7 +222,7 @@ const selectEntries=(data)=>{
       <Heading heading={'Salary Summary'} />
       <TileContainer Data={TileData} />
       <DropDownFilter title1={'Floor'} title2={'Location'} selectByFloor={selectByFloor}  selectBylocation={selectBylocation}    />
-       <Filter data={salary} isMonth={true} changeMonth={setMonth} changeDate={changeDate} changeByDesignation={changeByDesignation} changeByEmployee={changeByEmployee}/>
+       <Filter data={salary} isMonth={true} changeMonth={setMonth} changeYear={setYear} changeDate={changeDate} changeByDesignation={changeByDesignation} changeByEmployee={changeByEmployee}/>
       <div className={classes.whole_table_c}>
       <MainTable wd={'3000px'} data={salary} height={true} Lnk2={isView} headings={tableHeadings} keys={tableKeys} link1={'/salary_summary_details'} link2={false} />
       </div>

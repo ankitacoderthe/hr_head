@@ -13,6 +13,8 @@ import Cookies from 'universal-cookie'
 import axios from 'axios'
 import { url } from '../../util'
 import { ToastContainer, toast } from 'react-toastify'
+import InpFile from '../../Components/InpFile/InpFile'
+import NewInpFile from '../../Components/NewInpFile/NewInpFile'
 const SalaryDetails = () => {
  
   const cookies = new Cookies();
@@ -168,7 +170,7 @@ const selectEntries=(data)=>{
     const listSalary=(Salary)=>{
       Salary.forEach((data)=>{
         data.month_days=moment([data.year,data.month]).daysInMonth()
-        data.min_wages_as_per_rule=data.min_wages_as_per_rule!==null?data.min_wages_as_per_rule.toFixed(2):data.base_salary.toFixed(2)
+        data.min_wages_as_per_rule=data.min_wages_as_per_rule!==null&&data.base_salary<data.min_wages_as_per_rule?data.min_wages_as_per_rule.toFixed(2):data.base_salary.toFixed(2)
       })
       setSalary(Salary)
     }
@@ -219,8 +221,10 @@ const selectEntries=(data)=>{
   return (
     <React.Fragment>
       <DownloadSalarySlip value={newval} setval={setNewVal} Obj={obj} />
+      <div className={classes.container}>
       <Heading heading={'Salary Details'} />
-      
+      <NewInpFile func={uploadCommissionData}/>
+      </div>
       <ToastContainer></ToastContainer>
       <TileContainer Data={TileData} />
       <DropDownFilter title1={'Floor'} title2={'Location'} selectByFloor={selectByFloor}  selectBylocation={selectBylocation}    />
